@@ -3,7 +3,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: quote
-  namespace: backend
 spec:
   replicas: 1
   selector:
@@ -19,10 +18,10 @@ spec:
       containers:
         - name: quote
           # image: docker.io/datawire/quote:0.4.1
-          image: musman3/flask-k8s:2
+          image: nginx
           ports:
             - name: http
-              containerPort: 5000
+              containerPort: 80
           resources:
             requests:
               cpu: 100m
